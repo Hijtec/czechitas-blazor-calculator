@@ -1,41 +1,12 @@
-﻿<ErrorBoundary @ref="errorBoundary" OnError="HandleError">
-    <ChildContent>
-        <Router AppAssembly="@typeof(App).Assembly">
-            <Found Context="routeData">
-                <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-                <FocusOnNavigate RouteData="@routeData" Selector="h1" />
-            </Found>
-            <NotFound>
-                <PageTitle>Not found</PageTitle>
-                <LayoutView Layout="@typeof(MainLayout)">
-                    <p role="alert">Sorry, there's nothing at this address.</p>
-                </LayoutView>
-            </NotFound>
-        </Router>
-    </ChildContent>
-    <ErrorContent>
-        <PageTitle>Error</PageTitle>
+﻿<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
-            <h3>Oops! Something went wrong.</h3>
-            <p role="alert">An unexpected error occurred. Try refreshing the page.</p>
-            <button @onclick="ResetError">Try Again</button>
-            <pre>@errorMessage</pre>
+            <p role="alert">Sorry, there's nothing at this address.</p>
         </LayoutView>
-    </ErrorContent>
-</ErrorBoundary>
-
-@code {
-    private ErrorBoundary errorBoundary;
-    private string errorMessage;
-
-    private void HandleError(Exception exception)
-    {
-        errorMessage = exception.ToString(); // Capture full call stack
-    }
-
-    private void ResetError()
-    {
-        errorMessage = null;
-        errorBoundary?.Recover();
-    }
-}
+    </NotFound>
+</Router>
