@@ -3,7 +3,7 @@
 <PageTitle>Kalkulačka</PageTitle>
 
 <div class="calculator">
-    <div class="display">@currentInput</div>
+    <div class="display">@displayText</div>
     <div class="keypad">
         <div class="keypad-row">
             <button @onclick="() => AddInput(7)">7</button>
@@ -22,79 +22,56 @@
         </div>
         <div class="keypad-row">
             <button @onclick="() => AddInput(0)">0</button>
-            <button @onclick="AddDecimalPoint">.</button>
+            <button @onclick="() => AddDecimalPoint()">.</button>
         </div>
         <div class="keypad-row">
-            <button @onclick="() => SetOperation('+')">+</button>
-            <button @onclick="() => SetOperation('-')">-</button>
-            <button @onclick="() => SetOperation('*')">*</button>
-            <button @onclick="() => SetOperation('/')">/</button>
+            <button @onclick="() => SetOperation(knownOperators[0])">@knownOperators[0]</button>
+            <button @onclick="() => SetOperation(knownOperators[1])">@knownOperators[1]</button>
+            <button @onclick="() => SetOperation(knownOperators[2])">@knownOperators[2]</button>
+            <button @onclick="() => SetOperation(knownOperators[3])">@knownOperators[3]</button>
         </div>
         <div class="keypad-row">
-            <button @onclick="CalculateResult">=</button>
-            <button @onclick="Clear">C</button>
+            <button @onclick="() => CalculateResult()">=</button>
+            <button @onclick="() => Clear()">C</button>
         </div>
     </div>
 </div>
 
 @code {
-    private string currentInput = "";
-    private double firstNumber = 0;
-    private char? operation = null;
+    private string displayText = ""; // Text na displayi
+    private double firstNumber = 0; // První číslo
+    private string operation; // Operátor
+    private string[] knownOperators = { "+", "-", "*", "/" }; //TODO: přidejte mocnění, přidejte tlačítko
 
-    private Calculator calculator = new Calculator();
+    //TODO: Budeme potřebovat instanciovat naši kalkulačku.
 
+    //TODO: Vyřešit funkcionalitu zadávání číselných vstupů.
     private void AddInput(int number)
     {
-        if (currentInput == "0") {
-            currentInput = number.ToString();
-        }
-        else {
-            currentInput += number.ToString();
-        }
-    }
 
+    }
+    //TODO: Vyřešit funkcionalitu přidání desetinné čárky.
     private void AddDecimalPoint()
     {
-        if (!currentInput.Contains(".")) {
-            currentInput += ".";
-        }
+
     }
 
-    private void SetOperation(char op)
+    //TODO: zpracuje aktuální text na displayi jako první číslo, vyčistí jej, a dle stisknuté operace uloží operaci do
+    // proměnné operation.
+    private void SetOperation(string operationInput)
     {
-        firstNumber = double.Parse(currentInput, System.Globalization.CultureInfo.InvariantCulture);
-        calculator.AktualniVysledek = firstNumber;
-        currentInput = "";
-        operation = op;
+
     }
 
+    //TODO: zpracuje aktuální text na displayi jako druhé číslo, nechá kalkulačku vypočítat výsledek. Výsledek pak zobrazí
+    //na display.
     private void CalculateResult()
     {
-        double secondNumber = double.Parse(currentInput, System.Globalization.CultureInfo.InvariantCulture);
-
-        switch (operation) {
-            case '+' : 
-                calculator.Secti(secondNumber);
-                break;
-            case '-' :
-                calculator.Odecti(secondNumber);
-                break;
-            case '*' :
-                calculator.Nasob(secondNumber);
-                break;
-            case '/' :
-                calculator.Vydel(secondNumber);
-                break;
-            default :
-                break;
-        }
-
-        currentInput = calculator.VratAktualniVysledek().ToString();
     }
 
+    //TODO: vymaže všechna aktuální čísla zapsaná na displayi.
     private void Clear()
     {
-        currentInput = "0";
+
     }
 }

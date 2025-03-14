@@ -4,17 +4,17 @@ public class Calculator
 
     public void Secti(double b)
     {
-        AktualniVysledek = AktualniVysledek + b;
+        AktualniVysledek += b;
     }
 
     public void Odecti(double b)
     {
-        AktualniVysledek = AktualniVysledek - b;
+        AktualniVysledek -= b;
     }
 
     public void Nasob(double b)
     {
-        AktualniVysledek = AktualniVysledek * b;
+        AktualniVysledek *= b;
     }
 
     public void Vydel(double b)
@@ -24,7 +24,12 @@ public class Calculator
             throw new DivideByZeroException("Cannot divide by zero.");
         }
 
-        AktualniVysledek =  AktualniVysledek / b;
+        AktualniVysledek /= b;
+    }
+
+    public void Umocni(double b)
+    {
+        AktualniVysledek = Math.Pow(AktualniVysledek, b);
     }
 
     public double VratAktualniVysledek()
