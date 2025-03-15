@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Kalkulacka</title>   
+    <title>Kalkulacka</title>
     <base href="/" />
     <link href="css/app.css" rel="stylesheet" />
-    
+
     <!-- If you add any scoped CSS files, uncomment the following to load them
     <link href="Kalkulacka.styles.css" rel="stylesheet" /> -->
 </head>
@@ -20,6 +20,16 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        setTimeout(function () {
+            if (window.Blazor) {
+                window.Blazor.defaultReconnectionHandler = null;
+            } else {
+                console.warn("Blazor object is not available yet.");
+            }
+        }, 100);
+    </script>
+
 </body>
 
 </html>
