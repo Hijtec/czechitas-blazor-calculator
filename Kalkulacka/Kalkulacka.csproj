@@ -11,4 +11,26 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.2" PrivateAssets="all" />
   </ItemGroup>
 
+  <Target Name="PostPublish" AfterTargets="Publish">
+    <Message Importance="high" Text="Cleaning docs folder and copying wwwroot contents with folder structure..." />
+
+    <!-- Clean the docs folder (one level up) -->
+    <Remove Files="$(ProjectDir)..\docs\**\*" Condition="Exists('$(ProjectDir)..\docs')" />
+
+    <!-- Create the docs folder (one level up) if it doesn't exist -->
+    <MakeDir Directories="$(ProjectDir)..\docs" Condition="!Exists('$(ProjectDir)..\docs')" />
+
+    <!-- Include all files from wwwroot in the publish folder -->
+    <ItemGroup>
+      <FilesToCopy Include="$(PublishDir)wwwroot\**\*.*" />
+    </ItemGroup>
+
+    <!-- Copy all the files from wwwroot to docs folder, keeping the directory structure -->
+    <Copy 
+      SourceFiles="@(FilesToCopy)" 
+      DestinationFolder="$(ProjectDir)..\docs\%(RecursiveDir)" 
+    />
+
+  </Target>
+
 </Project>

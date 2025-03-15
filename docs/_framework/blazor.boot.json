@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Kalkulacka",
   "resources": {
-    "hash": "sha256-B+b0RJDzaRJdwHwC/PaFc754YGUrc2gR1eqIVN7MSgQ=",
+    "hash": "sha256-cU+CW1Gf64MYHEWNFzYk4ohgKAmn2SKlY2wTX1LMvQ8=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.uhf7sxcfdx.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Kalkulacka.wasm": "sha256-DgjgfsZ4eAvDb2qnVuO5IaWc3Ri9Wqv4i3te5ah2/5g=",
+      "Kalkulacka.wasm": "sha256-2G/irs67EhKpRxCWjaWAcL4W9AEh94EK5xz2iJeigaM=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-RvOpH8gL/u9FGHOiX+ypdaTQ4lcQahF5dxtZw1ABRrs=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-UTGEuy+LewQ94nSpiDp0JCGxHLcldS1/zPmafhT7Kjo=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-QBfhsnwEuWZ7U0xlB6ih8+oXqY0IXQaOjxq9EEW8/9A=",
