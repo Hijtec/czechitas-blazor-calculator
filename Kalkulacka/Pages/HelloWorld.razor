@@ -1,14 +1,7 @@
-﻿@page "/"
-
+﻿@page "/helloworld"
 <p>Hello World!</p>
 
-<button @onclick="NavigateToKalkulacka">Go to Kalkulačka</button>
+@code
+{
 
-@code {
-    [Inject] NavigationManager Navigation { get; set; } = default!;
-
-    void NavigateToKalkulacka()
-    {
-        Navigation.NavigateTo("/kalkulacka");
-    }
 }
