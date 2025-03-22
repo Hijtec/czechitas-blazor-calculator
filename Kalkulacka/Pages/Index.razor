@@ -1,7 +1,8 @@
-﻿@page "/"
+﻿@page "/kalkulacka"
+@*Zmenit na index po predstaveni blazoru *@
 
 <PageTitle>Kalkulačka</PageTitle>
-
+<h1 class="text-center">Moje Kalkulačka</h1>
 <div class="calculator">
     <div class="display">@displayText</div>
     <div class="keypad">
@@ -37,49 +38,46 @@
     </div>
 </div>
 
-<div class="container span6 well">
-    <legend>History</legend>
-    @foreach (string historyEntry in history)
-    {
-        <p>@historyEntry</p>
-    }
+<div class="container">
+    <h2>Historie</h2>
+    @* EXTRA: Pridejte logiku zobrazovani hisorie *@
 </div>
 
 @code {
-    private string displayText = ""; // Text na displayi
+    private string displayText = ""; // Aktualni text na displayi
     private double firstNumber = 0; // První číslo
-    private string operation; // Operátor
+    private string selectedOperator; // Operátor
     private string[] knownOperators = { "+", "-", "*", "/" }; //TODO: přidejte mocnění, přidejte poté i tlačítko
-    private List<string> history = new List<string>(); //TODO: history reprezentuje 
+    private List<string> history = new List<string>(); //EXTRA: history reprezentuje
 
     //TODO: Budeme potřebovat instanciovat naši kalkulačku.
 
-    //TODO: Vyřešit funkcionalitu zadávání číselných vstupů.
+    //TODO: Vyřešte funkcionalitu zadávání číselných vstupů.
     private void AddInput(int number)
     {
-        history.Add(number.ToString());
     }
-    //TODO: Vyřešit funkcionalitu přidání desetinné čárky.
+    //TODO: Vyřešte funkcionalitu přidání desetinné čárky.
     private void AddDecimalPoint()
     {
 
     }
 
-    //TODO: Zpracuje aktuální text na displayi jako první číslo, vyčistí jej, a dle stisknuté operace uloží operaci do
-    // proměnné operation.
+    //TODO: Zpracuje aktuální text na displayi jako první číslo, vyčistí display, a dle stisknuté operace uloží operaci do
+    // proměnné selectedOperator.
     private void SetOperation(string operationInput)
     {
 
     }
 
-    //TODO: Zpracuje aktuální text na displayi jako druhé číslo, nechá kalkulačku vypočítat výsledek. Výsledek pak zobrazí
+    //TODO: Zpracuje aktuální text na displayi jako druhé číslo, necháme kalkulačku vypočítat výsledek. Výsledek pak zobrazí
     //na display.
+    //Extra: Zapamatuje si celý výraz a přidá ho do historie
     private void CalculateResult()
     {
 
     }
 
-    //TODO: vymaže všechen text aktuálně zapsaný na displayi.
+    //TODO: Vymaže všechen text aktuálně zapsaný na displayi.
     private void Clear()
     {
 
