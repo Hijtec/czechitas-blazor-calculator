@@ -31,10 +31,18 @@
             <button @onclick="() => SetOperation(knownOperators[3])">@knownOperators[3]</button>
         </div>
         <div class="keypad-row">
-            <button @onclick="() => CalculateResult()">=</button>
-            <button @onclick="() => Clear()">C</button>
+            <button class="btn btn-primary" @onclick="() => CalculateResult()">=</button>
+            <button class="btn btn-danger" @onclick="() => Clear()">C</button>
         </div>
     </div>
+</div>
+
+<div class="container span6 well">
+    <legend>History</legend>
+    @foreach (string historyEntry in history)
+    {
+        <p>@historyEntry</p>
+    }
 </div>
 
 @code {
@@ -42,13 +50,14 @@
     private double firstNumber = 0; // První číslo
     private string operation; // Operátor
     private string[] knownOperators = { "+", "-", "*", "/" }; //TODO: přidejte mocnění, přidejte poté i tlačítko
+    private List<string> history = new List<string>(); //TODO: history reprezentuje 
 
     //TODO: Budeme potřebovat instanciovat naši kalkulačku.
 
     //TODO: Vyřešit funkcionalitu zadávání číselných vstupů.
     private void AddInput(int number)
     {
-
+        history.Add(number.ToString());
     }
     //TODO: Vyřešit funkcionalitu přidání desetinné čárky.
     private void AddDecimalPoint()

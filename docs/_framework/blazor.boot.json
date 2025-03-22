@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Kalkulacka",
   "resources": {
-    "hash": "sha256-cU+CW1Gf64MYHEWNFzYk4ohgKAmn2SKlY2wTX1LMvQ8=",
+    "hash": "sha256-NaSk+H06CLNgf/YObPbYS3mKTeFhzRnTzIgKJ4GzKL0=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.uhf7sxcfdx.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Kalkulacka.wasm": "sha256-2G/irs67EhKpRxCWjaWAcL4W9AEh94EK5xz2iJeigaM=",
+      "Kalkulacka.wasm": "sha256-OO2JjOzHh9n3jyiWzWqo0SteMjpU8zwceCzmqAzLVh4=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-RvOpH8gL/u9FGHOiX+ypdaTQ4lcQahF5dxtZw1ABRrs=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-UTGEuy+LewQ94nSpiDp0JCGxHLcldS1/zPmafhT7Kjo=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-QBfhsnwEuWZ7U0xlB6ih8+oXqY0IXQaOjxq9EEW8/9A=",
@@ -33,7 +33,7 @@
       "Microsoft.JSInterop.wasm": "sha256-6Fh0iHifJj2NUkUTByFjbWWQZ0nfTExCzZkp7QhGcTs=",
       "Microsoft.JSInterop.WebAssembly.wasm": "sha256-re4y+UumAyZl94dJjVgnib6XwVZDowkJ+DC/lW821Dk=",
       "System.Collections.Concurrent.wasm": "sha256-bsTUOLR7rbfGQfDwqn77H6hN6vG1aWOou3IjrsolavU=",
-      "System.Collections.wasm": "sha256-7YMEo2gTkS/lb+KhNA/BB0HC+qogxS6anlXUnoCKRIc=",
+      "System.Collections.wasm": "sha256-3RonQnwEjaIA0YZkKUbnpx9MK7BUZCXOIR7UhLK84uI=",
       "System.ComponentModel.wasm": "sha256-v8H7Syin2/71qXj/crjWtAI0k51ij82G0hwQOSwqwWM=",
       "System.Console.wasm": "sha256-MgFzz7124fiUNSXwuqDlgztGJtbTeWM03SUnb5NOKok=",
       "System.Diagnostics.DiagnosticSource.wasm": "sha256-qIFd8A8M5vIQB3gaAY+4fv5jDk6v0RB7NIca2KsiY5s=",

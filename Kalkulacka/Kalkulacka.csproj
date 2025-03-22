@@ -15,7 +15,7 @@
     <Message Importance="high" Text="Cleaning docs folder and copying wwwroot contents with folder structure..." />
 
     <!-- Clean the docs folder (one level up) -->
-    <Remove Files="$(ProjectDir)..\docs\**\*" Condition="Exists('$(ProjectDir)..\docs')" />
+    <Delete Files="$(ProjectDir)..\docs\**\*" Condition="Exists('$(ProjectDir)..\docs')" />
 
     <!-- Create the docs folder (one level up) if it doesn't exist -->
     <MakeDir Directories="$(ProjectDir)..\docs" Condition="!Exists('$(ProjectDir)..\docs')" />
