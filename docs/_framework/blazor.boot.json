@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Kalkulacka",
   "resources": {
-    "hash": "sha256-w6e9PmcsZTpDhJtG3BFNwYTEWaS4a5cGm/vhMV2ipTk=",
+    "hash": "sha256-7vb1pR8SJVt5PENb37Tls/i9RJXML/bMWyN5lSFh4Ds=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.uhf7sxcfdx.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "Kalkulacka.wasm": "sha256-own3mlssllp0yr1tBT+jOemdFFyCeeHANm6S6RJsLsg=",
+      "Kalkulacka.wasm": "sha256-CePVKArWcUx+ikUuil0HgmWLRfkROqie2IeAR5A7S5Q=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-sd4Gm98BrXm0EMPxTBsxJ6aKMdC8y5/BQa+rLUXPWF8=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-ZKUvGzUD2m7PTjrKrKUFS000u8/LKNkCPdMHrtymqHs=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-IyNPB/icx8fwHDGp119+uwrgtMij/EpbsuPw1HKGbsA=",
@@ -40,10 +40,10 @@
       "System.Memory.wasm": "sha256-oeDqUq7qFsn5dYS1i8+vhQcZCxJxuEbP9DGgk5Ugz6w=",
       "System.Net.Http.wasm": "sha256-4QEWQwdpnIS28NZuhufVx6AjYhT4DGI78Mrk6pih+B8=",
       "System.Net.Primitives.wasm": "sha256-SvWdpKfoPnL3ON6T/H9vcLovpRgLkfqyRLud073nLCA=",
-      "System.Private.CoreLib.wasm": "sha256-DJC2arKr1UVOcJG1kfMdb0Snj1+TYVlezfCLiS80f34=",
+      "System.Private.CoreLib.wasm": "sha256-bCWOfd7Jb8uC90pP5H310eKQeuMRQ7yA3rCCWb3MPAg=",
       "System.Private.Uri.wasm": "sha256-fVO5PnQEkdKOpWWOYDaPIE+7saxYE3xM1xMUM+E6xg8=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-BcY8OCAYFl//xk04taYxuj0BrUV0gAMO6PVF4u2RopM=",
-      "System.Runtime.wasm": "sha256-54xhRroaHAksk5zzw6cAv5ehQ/EHPqxkGKfdEnyTFhQ=",
+      "System.Runtime.wasm": "sha256-8QbJe8O0lVuYLICjwLhbTAvIyAnWxH7J0dO5Ki0giUE=",
       "System.Text.Encodings.Web.wasm": "sha256-4ASLPI+R+3lvUZI8lVAOpIPzNEwiqbxX910GoFqMC+A=",
       "System.Text.Json.wasm": "sha256-iYUw9hl2WtztDjy9EojyWiy4IFwuoKwYIo6kchAuCZY=",
       "System.Text.RegularExpressions.wasm": "sha256-S8ZfFQkhEU7qfOpYZSZieDFJUrg+CBXYcTzj+1rf4Eg="
