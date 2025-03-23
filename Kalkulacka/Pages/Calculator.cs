@@ -1,6 +1,6 @@
 public class Calculator
 {
-    public double AktualniVysledek = 0;
+    private double AktualniVysledek = 0;
 
     public void Secti(double b)
     {
@@ -19,11 +19,6 @@ public class Calculator
 
     public void Vydel(double b)
     {
-        if (b == 0)
-        {
-            throw new DivideByZeroException("Cannot divide by zero.");
-        }
-
         AktualniVysledek /= b;
     }
 
