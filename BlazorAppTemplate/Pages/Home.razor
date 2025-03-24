@@ -2,6 +2,58 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>@pozdrav</h1>
 
-Welcome to your new app.
+<p>Moje oblíbená dovolená je @dovolena</p>
+
+<button @onclick="@(() => HandleMouseClick("Hory"))">Hory</button>
+<button @onclick="@(() => HandleMouseClick("More"))">Moře</button>
+
+<p>Aktuální čas je @DateTime.Now</p>
+
+
+<input @oninput="@((e) => AktualizujText(e))" />
+<p>Aktuální text: @text</p>
+
+<button @onclick="Reset">Reset</button>
+
+<h1>@aktualniPoziceTlacitka</h1>
+@for (var i = 1; i < 4; i++)
+{
+    var buttonNumber = i;
+
+    <p>
+        <button @onclick="@(e => UpdateHeading(e, buttonNumber))">
+            Button #@i
+        </button>
+    </p>
+}
+
+@code {
+    private string aktualniPoziceTlacitka = "Select a button to learn its position";
+
+    private void UpdateHeading(MouseEventArgs e, int buttonNumber)
+    {
+        aktualniPoziceTlacitka = $"Selected #{buttonNumber} at {e.PageX}:{e.PageY}";
+    }
+    private string dovolena = "Neznámá";
+    private string pozdrav = "Ahoj, Blazore!";
+
+    private string text = "";
+
+    private void AktualizujText(ChangeEventArgs e)
+    {
+        text = e.Value.ToString();
+    }
+
+    private void Reset()
+    {
+        text = "";
+    }
+
+    private void HandleMouseClick(string text)
+    {
+        dovolena = text;
+    }
+
+}
