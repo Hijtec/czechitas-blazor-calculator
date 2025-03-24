@@ -18,12 +18,12 @@
 <button @onclick="Reset">Reset</button>
 
 <h1>@aktualniPoziceTlacitka</h1>
-@for (var i = 1; i < 4; i++)
+@for (int i = 1; i < 4; i++)
 {
-    var buttonNumber = i;
+    int buttonNumber = i;
 
     <p>
-        <button @onclick="@(e => UpdateHeading(e, buttonNumber))">
+        <button @onclick="@(e => ZjistiAktualniPoziciKurzoruACisloTlacitka(e, buttonNumber))">
             Button #@i
         </button>
     </p>
@@ -32,7 +32,7 @@
 @code {
     private string aktualniPoziceTlacitka = "Select a button to learn its position";
 
-    private void UpdateHeading(MouseEventArgs e, int buttonNumber)
+    private void ZjistiAktualniPoziciKurzoruACisloTlacitka(MouseEventArgs e, int buttonNumber)
     {
         aktualniPoziceTlacitka = $"Selected #{buttonNumber} at {e.PageX}:{e.PageY}";
     }
@@ -53,6 +53,7 @@
 
     private void HandleMouseClick(string text)
     {
+        @* Thread.Sleep(5000); *@ //simulace blokování
         dovolena = text;
     }
 
