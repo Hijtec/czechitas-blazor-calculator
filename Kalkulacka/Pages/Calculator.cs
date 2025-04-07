@@ -36,4 +36,9 @@ public class Calculator
     {
         AktualniVysledek = novyVysledek;
     }
+
+    public bool JeOperatorPodporovan(string operatorInput)
+    {
+        return operatorInput == "+" || operatorInput == "-" || operatorInput == "*" || operatorInput == "/" || operatorInput == "^";
+    }
 }

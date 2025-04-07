@@ -22,7 +22,7 @@
         </div>
         <div class="keypad-row">
             <button @onclick="() => AddInput(0)">0</button>
-            <button @onclick="() => AddDecimalPoint()">.</button>
+            <button @onclick="() => AddDecimalPoint()">,</button>
         </div>
         <div class="keypad-row">
             <button @onclick="() => SetOperation(knownOperators[0])">@knownOperators[0]</button>
@@ -40,6 +40,10 @@
 <div class="container">
     <h2>Historie</h2>
     @* EXTRA: Pridejte logiku zobrazovani hisorie *@
+    @foreach (string item in history)
+    {
+        <p>@item</p>
+    }
 </div>
 
 @code {
@@ -51,22 +55,38 @@
                                                        //ovladačky
 
     //TODO: Budeme potřebovat instanciovat naši kalkulačku.
+    private Calculator calculator = new Calculator();
 
     //TODO: Vyřešte funkcionalitu zadávání číselných vstupů.
     private void AddInput(int number)
     {
+        if (displayText == "0")
+        {
+            displayText = number.ToString();
+        }
+        else
+        {
+            displayText += number.ToString();
+        }
     }
     //TODO: Vyřešte funkcionalitu přidání desetinné čárky.
     private void AddDecimalPoint()
     {
-
+        if (!displayText.Contains(","))
+        {
+            displayText += ",";
+        }
     }
 
     //TODO: Zpracuje aktuální text na displayi jako první číslo, vyčistí display, a dle stisknuté operace uloží operaci do
     // proměnné selectedOperator.
     private void SetOperation(string operationInput)
     {
-
+        firstNumber = double.Parse(displayText);
+        //firstNumber = double.Parse(currentInput, System.Globalization.CultureInfo.InvariantCulture);
+        calculator.NastavAktualniVysledek(firstNumber);
+        displayText = "";
+        selectedOperator = operationInput;
     }
 
     //TODO: Zpracuje aktuální text na displayi jako druhé číslo, necháme kalkulačku vypočítat výsledek. Výsledek pak zobrazí
@@ -74,12 +94,39 @@
     //Extra: Zapamatuje si celý výraz a přidá ho do historie
     private void CalculateResult()
     {
+        double secondNumber = double.Parse(displayText);
+        //double secondNumber = double.Parse(currentInput, System.Globalization.CultureInfo.InvariantCulture);
+        if (calculator.JeOperatorPodporovan(selectedOperator))
+        {
+            switch (selectedOperator)
+            {
+                case "+":
+                    calculator.Secti(secondNumber);
+                    break;
+                case "-":
+                    calculator.Odecti(secondNumber);
+                    break;
+                case "*":
+                    calculator.Nasob(secondNumber);
+                    break;
+                case "/":
+                    calculator.Vydel(secondNumber);
+                    break;
+                case "^":
+                    calculator.Umocni(secondNumber);
+                    break;
+                default:
+                    break;
+            }
 
+            displayText = calculator.VratAktualniVysledek().ToString();
+            history.Add($"{firstNumber} {selectedOperator} {secondNumber} = {displayText}");
+        }
     }
 
     //TODO: Vymaže všechen text aktuálně zapsaný na displayi.
     private void Clear()
     {
-
+        displayText = "0";
     }
 }
