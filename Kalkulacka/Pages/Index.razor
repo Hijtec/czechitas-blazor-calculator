@@ -22,13 +22,14 @@
         </div>
         <div class="keypad-row">
             <button @onclick="() => AddInput(0)">0</button>
-            <button @onclick="() => AddDecimalPoint()">,</button>
+            <button @onclick="() => AddDecimalPoint()">.</button>
         </div>
         <div class="keypad-row">
             <button @onclick="() => SetOperation(knownOperators[0])">@knownOperators[0]</button>
             <button @onclick="() => SetOperation(knownOperators[1])">@knownOperators[1]</button>
             <button @onclick="() => SetOperation(knownOperators[2])">@knownOperators[2]</button>
             <button @onclick="() => SetOperation(knownOperators[3])">@knownOperators[3]</button>
+            <button @onclick="() => SetOperation(knownOperators[4])">@knownOperators[4]</button>
         </div>
         <div class="keypad-row">
             <button class="btn btn-primary" @onclick="() => CalculateResult()">=</button>
@@ -47,10 +48,10 @@
 </div>
 
 @code {
-    private string displayText = ""; // Aktualni text na displayi
+    private string displayText = "0"; // Aktualni text na displayi
     private double firstNumber = 0; // První číslo
     private string selectedOperator; // Operátor
-    private string[] knownOperators = { "+", "-", "*", "/" }; //TODO: přidejte mocnění, přidejte poté i tlačítko pro mocnění
+    private string[] knownOperators = { "+", "-", "*", "/", "^" };
     private List<string> history = new List<string>(); //EXTRA: history reprezentuje historii všech operací od zapnutí
                                                        //ovladačky
 
@@ -72,9 +73,9 @@
     //TODO: Vyřešte funkcionalitu přidání desetinné čárky.
     private void AddDecimalPoint()
     {
-        if (!displayText.Contains(","))
+        if (!displayText.Contains("."))
         {
-            displayText += ",";
+            displayText += ".";
         }
     }
 
@@ -82,8 +83,7 @@
     // proměnné selectedOperator.
     private void SetOperation(string operationInput)
     {
-        firstNumber = double.Parse(displayText);
-        //firstNumber = double.Parse(currentInput, System.Globalization.CultureInfo.InvariantCulture);
+        firstNumber = double.Parse(displayText, System.Globalization.CultureInfo.InvariantCulture);
         calculator.NastavAktualniVysledek(firstNumber);
         displayText = "";
         selectedOperator = operationInput;
@@ -94,8 +94,8 @@
     //Extra: Zapamatuje si celý výraz a přidá ho do historie
     private void CalculateResult()
     {
-        double secondNumber = double.Parse(displayText);
-        //double secondNumber = double.Parse(currentInput, System.Globalization.CultureInfo.InvariantCulture);
+        //double secondNumber = double.Parse(displayText);
+        double secondNumber = double.Parse(displayText, System.Globalization.CultureInfo.InvariantCulture);
         if (calculator.JeOperatorPodporovan(selectedOperator))
         {
             switch (selectedOperator)
